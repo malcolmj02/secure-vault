@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encrypt File - SecureVault</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/dashboard.html">SecureVault</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/encrypt.html">Encrypt New File</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/files.html">My Files</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/" id="logoutBtn">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Encrypt New File</h2>
+              <form id="encryptForm">
+                <div class="mb-3">
+                  <label for="file" class="form-label">Choose File</label>
+                  <input type="file" class="form-control" id="file" required>
+                </div>
+                <div class="mb-3">
+                  <label for="encryptionKey" class="form-label">Encryption Key</label>
+                  <div class="input-group">
+                    <input type="password" class="form-control" id="encryptionKey" required>
+                    <button class="btn btn-outline-secondary" type="button" id="generateKey">Generate Key</button>
+                    <button class="btn btn-outline-secondary" type="button" id="copyKey" title="Copy to Clipboard">
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button" id="downloadKey" title="Download Key">
+                      <i class="bi bi-download"></i>
+                    </button>
+                  </div>
+                  <div class="form-text">Keep this key safe! You'll need it to decrypt your file later.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="confirmKey" class="form-label">Confirm Encryption Key</label>
+                  <input type="password" class="form-control" id="confirmKey" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Encrypt & Upload</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="copyToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">SecureVault</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Encryption key copied to clipboard!
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
